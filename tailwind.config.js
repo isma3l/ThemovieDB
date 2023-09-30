@@ -8,6 +8,9 @@ export default withMT({
     ],
     theme: {
       extend: {
+        colors: {
+          'custom-color': '#08152d',
+        },
       },
     },
     plugins: [],
