@@ -1,10 +1,15 @@
-import { PopularMovies } from '@/features/movies';
+import { Provider } from 'react-redux';
+import { store } from '@/store';
+import { PopularMoviesPage } from '@/features/movies';
 
 function App() {
   return (
+    <Provider store={store}>
       <div className="bg-custom-color h-full">
-        <PopularMovies />
+        <PopularMoviesPage />
       </div>
+    </Provider>  
+      
   );
 }
 

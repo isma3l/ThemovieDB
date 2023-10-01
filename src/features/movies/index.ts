@@ -1,1 +1,2 @@
-export { PopularMovies } from "./page";
+export { MoviesReducer } from "./slices";
+export { PopularMoviesPage } from "./page";
