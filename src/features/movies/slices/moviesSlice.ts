@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { MoviesData } from "../domain/Movies"
-import { popularMoviesAsyncThunk } from "./moviesActions"
+import { fetchAsyncPopularMovies } from "./moviesActions"
 
 export enum Status {
     Pending = "PENDING",
@@ -31,23 +31,20 @@ const MoviesSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(popularMoviesAsyncThunk.pending, state => {
+        builder.addCase(fetchAsyncPopularMovies.pending, state => {
             state.status = Status.Loading;
         });
-        builder.addCase(popularMoviesAsyncThunk.fulfilled, (state, action: PayloadAction<MoviesData>) => {
+        builder.addCase(fetchAsyncPopularMovies.fulfilled, (state, action: PayloadAction<MoviesData>) => {
             const { page, movies } = action.payload;
 
             state.status = Status.Success;
             state.popular.page = page;
             state.popular.movies = state.popular.movies.concat(movies);
         });
-        builder.addCase(popularMoviesAsyncThunk.rejected, state => {
+        builder.addCase(fetchAsyncPopularMovies.rejected, state => {
             state.status = Status.Error;
         });
     }
 });
 
 export const MoviesReducer = MoviesSlice.reducer;
-//export const selectInputFields = (state: RootState) => state.submissionReducer.inputFields;
-
-//const { details, loadingStatus, error, page, limit } = useAppSelector(selectTops);
