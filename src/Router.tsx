@@ -3,7 +3,6 @@ import { MainLayout } from './shared';
 import { PopularMoviesPage } from '@/features/movies';
 
 const base = "/";
-//const search = "search";
 
 const Router = () => {
     return (

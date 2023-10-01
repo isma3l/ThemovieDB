@@ -1,13 +1,11 @@
 import { Provider } from 'react-redux';
 import { store } from '@/store';
-import { PopularMoviesPage } from '@/features/movies';
+import Router from './Router';
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="bg-custom-color h-full">
-        <PopularMoviesPage />
-      </div>
+      <Router />
     </Provider>  
       
   );
