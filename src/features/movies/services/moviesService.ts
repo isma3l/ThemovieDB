@@ -29,6 +29,6 @@ const fetchMovies = async (url: string): Promise<MoviesData> => {
 }
 
 export const fetchPopularMovies = async (page: number): Promise<MoviesData> => {
-    const url = `movie/popular?page=${page}`;
+    const url = `movie/popular?page=${page}`; 
     return fetchMovies(url);
 }

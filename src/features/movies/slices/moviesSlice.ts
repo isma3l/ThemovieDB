@@ -36,7 +36,7 @@ const MoviesSlice = createSlice({
         });
         builder.addCase(fetchAsyncPopularMovies.fulfilled, (state, action: PayloadAction<MoviesData>) => {
             const { page, movies } = action.payload;
-
+            
             state.status = Status.Success;
             state.popular.page = page;
             state.popular.movies = state.popular.movies.concat(movies);
