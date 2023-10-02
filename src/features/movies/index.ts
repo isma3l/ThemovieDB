@@ -1,2 +1,2 @@
-export { MoviesReducer } from "./slices";
+export { moviesReducer, Status } from "./slices";
 export { PopularMoviesPage } from "./page";

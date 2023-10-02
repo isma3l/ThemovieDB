@@ -1,2 +1,2 @@
-export { MoviesReducer } from "./moviesSlice";
+export { moviesReducer, Status } from "./moviesSlice";
 export { fetchAsyncPopularMovies } from "./moviesActions";

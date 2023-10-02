@@ -1,2 +1,3 @@
 export { useAppDispatch, useAppSelector } from "./hooks";
-export { default as store } from "./store";
+export { store } from "./store";
+export type { RootState, AppDispatch, AppStore } from "./store";

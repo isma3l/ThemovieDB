@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { fetchAsyncPopularMovies } from "../../slices";
+import { fetchAsyncPopularMovies, Status } from "../../slices";
 import { useAppDispatch, useAppSelector } from "@/store";
 
 export const usePopularMovies = () => {
     const dispatch = useAppDispatch();
-    const popularMoviesData = useAppSelector((state) => state.MoviesReducer.popular);
-    
+    const popularMoviesData = useAppSelector((state) => state.moviesReducer.popular);
+    const status = useAppSelector((state) => state.moviesReducer.status);
+
     const dispatchFetch = () => dispatch(fetchAsyncPopularMovies(popularMoviesData.page));
 
     useEffect(() => {
@@ -15,6 +16,7 @@ export const usePopularMovies = () => {
     
     return {
         movies: popularMoviesData.movies,
-        fetchMoreMovies: dispatchFetch
+        fetchMoreMovies: dispatchFetch,
+        hasError: status === Status.Error
     }
 }
