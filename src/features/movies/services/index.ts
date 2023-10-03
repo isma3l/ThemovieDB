@@ -1,2 +1,2 @@
-export { fetchPopularMovies } from "./moviesService";
+export { fetchPopularMovies, fetchMoviesByName } from "./moviesService";
 export type { MoviesDataResponse, MovieResponse } from "./moviesApiResponse";

@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { Movie } from "@/features/movies/domain/Movies"
 
-export const getMockPopularMovies = (page: number): { page: number, movies: Movie[]} => {
+export const getMockMovies = (page: number, params?: Partial<Movie>): { page: number, movies: Movie[]} => {
     const sizePage = 20;
 
     const movies: Movie[] = Array(sizePage).fill(0).map(() => {
@@ -13,7 +13,8 @@ export const getMockPopularMovies = (page: number): { page: number, movies: Movi
             popularity: faker.number.int({ min: 1, max: 10}),
             posterPath: faker.image.url(),
             releaseDate: faker.date.anytime().toString(),
-            voteAverage: faker.number.int({ min: 1, max: 10})
+            voteAverage: faker.number.int({ min: 1, max: 10}),
+            ...params
         }
     });
 

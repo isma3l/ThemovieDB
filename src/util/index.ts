@@ -1,2 +1,2 @@
 export { formatDate } from "./date";
-export { renderWithProviders, getMockPopularMovies } from "./test";
+export { renderWithProviders, getMockMovies } from "./test";

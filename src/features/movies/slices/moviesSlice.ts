@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { MoviesData } from "../domain/Movies"
-import { fetchAsyncPopularMovies } from "./moviesActions"
+import { fetchAsyncPopularMovies, fetchAsyncMoviesByName } from "./moviesActions"
 
 export enum Status {
     Pending = "PENDING",
@@ -26,10 +26,14 @@ const initialState: MoviesState = {
     searched: movieDataEmpty 
 }
 
-const MoviesSlice = createSlice({
-    name: "MoviesReducer",
+const moviesSlice = createSlice({
+    name: "moviesReducer",
     initialState,
-    reducers: {},
+    reducers: {
+        resetSearch: (state) => {
+            state.searched = movieDataEmpty;
+        }
+    },
     extraReducers: builder => {
         builder.addCase(fetchAsyncPopularMovies.pending, state => {
             state.status = Status.Loading;
@@ -44,7 +48,18 @@ const MoviesSlice = createSlice({
         builder.addCase(fetchAsyncPopularMovies.rejected, state => {
             state.status = Status.Error;
         });
+        builder.addCase(fetchAsyncMoviesByName.fulfilled, (state, action: PayloadAction<MoviesData>) => {
+            const { page, movies } = action.payload;
+
+            state.status = Status.Success;
+            state.searched.page = page;
+            state.searched.movies = state.searched.movies.concat(movies);
+        });
+        builder.addCase(fetchAsyncMoviesByName.rejected, state => {
+            state.status = Status.Error;
+        });
     }
 });
 
-export const moviesReducer = MoviesSlice.reducer;
+export const { resetSearch } = moviesSlice.actions;
+export const moviesReducer = moviesSlice.reducer;

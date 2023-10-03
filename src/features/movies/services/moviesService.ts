@@ -32,3 +32,8 @@ export const fetchPopularMovies = async (page: number): Promise<MoviesData> => {
     const url = `movie/popular?page=${page}`; 
     return fetchMovies(url);
 }
+
+export const fetchMoviesByName = async (page: number, query: string): Promise<MoviesData> => {
+    const url = `search/movie?page=${page}&query=${query}`;
+    return fetchMovies(url);
+}

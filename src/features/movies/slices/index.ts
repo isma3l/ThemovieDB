@@ -1,2 +1,2 @@
-export { moviesReducer, Status } from "./moviesSlice";
-export { fetchAsyncPopularMovies } from "./moviesActions";
+export { moviesReducer, resetSearch, Status } from "./moviesSlice";
+export { fetchAsyncPopularMovies, fetchAsyncMoviesByName } from "./moviesActions";
