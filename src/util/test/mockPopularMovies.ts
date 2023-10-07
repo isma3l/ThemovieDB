@@ -1,9 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { Movie } from "@/features/movies/domain/Movies"
 
-export const getMockMovies = (page: number, params?: Partial<Movie>): { page: number, movies: Movie[]} => {
-    const sizePage = 20;
-
+export const getMockMovies = (page: number, sizePage: number, params?: Partial<Movie>): { page: number, movies: Movie[]} => {
     const movies: Movie[] = Array(sizePage).fill(0).map(() => {
         return {
             id: faker.number.int(10000),

@@ -11,7 +11,7 @@ describe('Popular movies', () => {
   const sizePage = 20;
   
   it('should render list of 20 movies', async () => {
-    mockFetchPopularMovies.mockImplementation((page: number) => getMockMovies(page));
+    mockFetchPopularMovies.mockImplementation((page: number) => getMockMovies(page, sizePage));
     renderWithProviders(<PopularMoviesPage />);
 
     const items = await screen.findAllByRole("listitem");
