@@ -1,10 +1,5 @@
-export interface MoviesData {
-    page: number;
-    movies: Movie[];
-}
-
-export interface Movie {
-    id: string;
+export interface MovieDetails {
+    id: number;
     adult: boolean;
     title: string;
     overview: string;
@@ -12,4 +7,7 @@ export interface Movie {
     posterPath: string;
     releaseDate: string;
     voteAverage: number;
+    languages: string[];
+    genres: string[];
+    homepage: string;
 }

@@ -6,6 +6,11 @@ export async function get<T>(url: string): Promise<T> {
     return await processFetch<T>(response);
 }
 
+export async function getWithOutParams<T>(url: string): Promise<T> {
+    const response = await fetch(`${BASE_URL}/${url}?api_key=${API_KEY}`);
+    return await processFetch<T>(response);
+}
+
 export const post = async <S, T>(url: string, body: S): Promise<T> => {
     const response = await fetch(`${BASE_URL}/${url}`, { method: 'POST', body: JSON.stringify(body)});
 

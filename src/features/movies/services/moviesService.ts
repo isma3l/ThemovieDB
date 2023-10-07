@@ -7,7 +7,7 @@ const IMAGEN_URL = "https://image.tmdb.org/t/p/original/";
 
 const mapperToMovie = (movie: MovieResponse): Movie => {
     return {
-        id: movie.id,
+        id: movie.id.toString(),
         adult: movie.adult,
         title: movie.title,
         overview: movie.overview,

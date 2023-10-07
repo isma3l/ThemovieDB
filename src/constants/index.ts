@@ -1,1 +1,1 @@
-export { BASE, SEARCH } from "./routers";
+export { BASE_URL, SEARCH_URL, MOVIE_DETAILS_URL, MOVIE_DETAILS } from "./routers";
