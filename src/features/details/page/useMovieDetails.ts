@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from "@/store";
-import { fetchAsyncMovieDetails, Status } from "../slices";
+import { fetchAsyncMovieDetails } from "../slices";
 import { rateMovieAsync } from "@/features/ratings";
-import { Rating } from "@/shared";
+import { Rating, Status } from "@/shared";
 
 export const useMovieDetails = () => {
     const urlParams = useParams();

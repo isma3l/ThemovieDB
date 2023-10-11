@@ -1,2 +1,2 @@
-export { movieDetailsReducer, Status, type MovieDetailsState } from "./slices";
-export { MovieDetailsPage } from "./page";
+export { movieDetailsReducer, type MovieDetailsState } from "./slices";
+export { MovieDetailsPage as default } from "./page";
