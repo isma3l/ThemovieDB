@@ -13,7 +13,7 @@ export const Header = ({ handleSearch }: { handleSearch: (text: string) => void 
             <SearchBar onSearch={handleSearch}/>
             <Link to={RATED_MOVIES_URL} className="text-red-500 font-bold text-sm whitespace-normal uppercase 
                 w-64 m-auto border border-red-700 p-0.5 py-2.5 rounded-lg text-center">
-                Peliculas valoradas
+                Mis peliculas valoradas
             </Link>
         </StickyBox>
     )

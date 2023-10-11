@@ -1,2 +1,2 @@
-export { rateMovieAsync, ratingReducer } from "./slices";
+export { rateMovieAsync, ratingReducer, resetRatingStatus } from "./slices";
 export { RatingPage as default } from "./page";

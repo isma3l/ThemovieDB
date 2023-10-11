@@ -1,2 +1,2 @@
 export { rateMovieAsync } from "./ratingActions";
-export { ratingReducer } from "./ratingSlice";
+export { ratingReducer, resetRatingStatus } from "./ratingSlice";

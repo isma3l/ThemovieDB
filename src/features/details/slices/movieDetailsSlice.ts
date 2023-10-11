@@ -9,7 +9,7 @@ export type MovieDetailsState = {
 
 const initialState: MovieDetailsState = {
     movie: null,
-    status: Status.Pending
+    status: Status.Idle
 }
 
 const movieDetailsSlice = createSlice({
@@ -18,7 +18,7 @@ const movieDetailsSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(fetchAsyncMovieDetails.pending, state => {
-            state.status = Status.Loading;
+            state.status = Status.Pending;
         });
         builder.addCase(fetchAsyncMovieDetails.fulfilled, (state, action: PayloadAction<Movie>) => {
             state.status = Status.Success;

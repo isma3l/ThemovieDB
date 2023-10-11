@@ -15,7 +15,7 @@ const movieDataEmpty: MoviesData = {
 }
 
 const initialState: MoviesState = {
-    status: Status.Pending,
+    status: Status.Idle,
     popular: movieDataEmpty,
     searched: movieDataEmpty 
 }
@@ -30,7 +30,7 @@ const moviesSlice = createSlice({
     },
     extraReducers: builder => {
         builder.addCase(fetchAsyncPopularMovies.pending, state => {
-            state.status = Status.Loading;
+            state.status = Status.Pending;
         });
         builder.addCase(fetchAsyncPopularMovies.fulfilled, (state, action: PayloadAction<MoviesData>) => {
             const { page, movies } = action.payload;

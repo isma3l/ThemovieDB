@@ -13,7 +13,7 @@ export type RatingState = {
 const initialState: RatingState = {
     session: null,
     ratings: {},
-    status: Status.Pending
+    status: Status.Idle
 }
 
 const ratingSlice = createSlice({
@@ -22,6 +22,9 @@ const ratingSlice = createSlice({
     reducers: {
         setSession: (state, action: PayloadAction<Session>) => {
             state.session = action.payload;
+        },
+        resetRatingStatus: (state) => {
+            state.status = Status.Idle;
         }
     },
     extraReducers: builder => {
@@ -41,4 +44,4 @@ const ratingSlice = createSlice({
 
 
 export const ratingReducer = ratingSlice.reducer;
-export const { setSession } = ratingSlice.actions;
+export const { setSession, resetRatingStatus } = ratingSlice.actions;

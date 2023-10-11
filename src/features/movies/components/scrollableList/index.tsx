@@ -12,8 +12,8 @@ export const ScrollableList = ({ movies, fetchMore }: { movies: Movie[], fetchMo
             loader={<Spinner className="sm:col-span-2 md:col-span-3 lg:col-span-4 xl:col-span-5"/>}
             className="grid gap-y-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-items-center pt-5"
         >
-            {movies.map((movie) => (
-                <MovieItem key={movie.id} movie={movie} />
+            {movies.map((movie, index) => (
+                <MovieItem key={`${index}-${movie.id}`} movie={movie} />
             ))}
         </InfiniteScroll>
     );

@@ -5,7 +5,7 @@ import { Rating } from "@/shared";
 const MIN_RATE = 0.5;
 const MAX_RATE = 10;
 
-export const RateForm = ({ handleRating }: { handleRating: (rating: Rating) => void}) => {
+export const RateForm = ({ handleRating, loading }: { loading: boolean, handleRating: (rating: Rating) => void}) => {
     const [rate, setRate] = useState("");
     const [comment, setComment] = useState("");
 
@@ -25,7 +25,7 @@ export const RateForm = ({ handleRating }: { handleRating: (rating: Rating) => v
         event.preventDefault();
         handleRating({ value: Number(rate), comment});        
     }
-
+    
     return (
         <form onSubmit={handleSubmit} noValidate className=" flex self-center rounded-md bg-white py-2 px-5 flex-col mt-16">
             <div className="flex justify-between items-center my-4">
@@ -42,9 +42,9 @@ export const RateForm = ({ handleRating }: { handleRating: (rating: Rating) => v
                 size="md"
                 color="blue"
                 className="rounded my-4"
-                disabled={!isRateValid}
+                disabled={!isRateValid || loading}
             >
-                Enviar puntuación
+                {loading ? "Enviando..." : "Enviar puntuación"}
             </Button>
         </form>
     )
