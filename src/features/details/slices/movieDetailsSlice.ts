@@ -1,13 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { Movie } from "@/shared"
+import { Movie, Status } from "@/shared"
 import { fetchAsyncMovieDetails } from "./moviesDetailsAction"
-
-export enum Status {
-    Pending = "PENDING",
-    Loading = "LOADING",
-    Success = "SUCCESS",
-    Error   = "ERROR"
-}
 
 export type MovieDetailsState = {
     movie: Movie | null,

@@ -1,6 +1,7 @@
 import { useEffect, useCallback } from "react";
-import { fetchAsyncPopularMovies, Status } from "../../slices";
+import { fetchAsyncPopularMovies } from "../../slices";
 import { useAppDispatch, useAppSelector } from "@/store";
+import { Status } from "@/shared";
 
 export const usePopularMovies = () => {
     const dispatch = useAppDispatch();

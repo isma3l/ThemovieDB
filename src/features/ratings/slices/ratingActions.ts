@@ -18,13 +18,15 @@ export const rateMovieAsync = createAsyncThunk<RatedMovie, Rating, { state: { ra
     ('rate/movie', async (rating: Rating, { getState, rejectWithValue, dispatch }) => {
         const { ratingReducer: { session }, movieDetailsReducer: { movie } } = getState();
         try {
+            if (movie === null) throw new Error("Movie cannot be undefined");
+            
             let newSession = session;
             if (!isValidSession(session)) {
                 newSession = await fetchNewSession();
                 dispatch(setSession(newSession));    
             }
 
-            await rateMovie(rating, movie?.id, newSession?.id);
+            await rateMovie(rating, movie.id, newSession?.id);
             
             return { 
                 movie,

@@ -2,13 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Session } from "../domain/Session";
 import { rateMovieAsync } from "./ratingActions";
 import { RatedMovie } from "../types/ratedMovie";
-
-export enum Status {
-    Pending = "PENDING",
-    Loading = "LOADING",
-    Success = "SUCCESS",
-    Error   = "ERROR"
-}
+import { Status } from "@/shared";
 
 export type RatingState = {
     session: Session | null;
@@ -36,9 +30,8 @@ const ratingSlice = createSlice({
         });
         builder.addCase(rateMovieAsync.fulfilled, (state, action: PayloadAction<RatedMovie>) => {
             const { movie } = action.payload;
-            if (movie) {
-                state.ratings[movie.id] = action.payload;
-            }            
+            state.ratings[movie.id] = action.payload;
+            state.status = Status.Success;        
         });
         builder.addCase(rateMovieAsync.rejected, state => {
             state.status = Status.Error;

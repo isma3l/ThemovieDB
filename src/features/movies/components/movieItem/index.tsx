@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MOVIE_DETAILS } from "@/constants";
-import { Movie } from "@/shared";
+import { MovieItem as Movie } from "@/shared";
 
 export const MovieItem = ({movie: {id, title, releaseDate, posterPath}}: {movie: Movie}) => {
     return (

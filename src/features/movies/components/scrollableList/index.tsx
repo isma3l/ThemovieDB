@@ -1,6 +1,6 @@
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Spinner } from "@/shared/components";
-import { Movie } from "@/shared";
+import { MovieItem as Movie } from "@/shared";
 import { MovieItem } from "../movieItem";
 
 export const ScrollableList = ({ movies, fetchMore }: { movies: Movie[], fetchMore: () => void }) => {

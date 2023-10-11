@@ -1,5 +1,5 @@
-import { Movie } from "@/shared";
+import { MovieItem } from "@/shared";
 export interface MoviesData {
     page: number;
-    movies: Movie[];
+    movies: MovieItem[];
 }

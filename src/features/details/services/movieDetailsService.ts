@@ -1,9 +1,7 @@
 import { getWithOutParams } from "@/lib/api";
 import { Movie } from "@/shared";
 import { MovieDetailsResponse } from "./movieDetailsResponse";
-import { formatDate } from "@/util";
-
-const IMAGEN_URL = "https://image.tmdb.org/t/p/original/";
+import { completeImagePath, formatDate } from "@/util";
 
 const mapperToMovieDetails = (movie: MovieDetailsResponse): Movie => {
     return {
@@ -12,7 +10,7 @@ const mapperToMovieDetails = (movie: MovieDetailsResponse): Movie => {
         title: movie.title,
         overview: movie.overview,
         popularity: movie.popularity,
-        posterPath: `${IMAGEN_URL}${movie.poster_path}`,
+        posterPath: completeImagePath(movie.poster_path),
         releaseDate: formatDate(movie.release_date),
         voteAverage: movie.vote_average,
         genres: movie.genres.map(genre => genre.name),

@@ -1,7 +1,8 @@
 import { useCallback, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { useQueryParams } from "@/shared/hooks";
-import { fetchAsyncMoviesByName, resetSearch, Status } from "../../slices";
+import { fetchAsyncMoviesByName, resetSearch } from "../../slices";
+import { Status } from "@/shared";
 
 export const useSearchedMovies = () => {
     const dispatch = useAppDispatch();

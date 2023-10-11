@@ -1,23 +1,15 @@
 import { get } from "@/lib/api";
 import { MoviesData } from "../domain/Movies";
-import { Movie } from "@/shared";
+import { MovieItem } from "@/shared";
 import { MovieResponse, MoviesDataResponse } from "./moviesApiResponse";
-import { formatDate, getMockMovies } from "@/util";
+import { formatDate, completeImagePath } from "@/util";
 
-const IMAGEN_URL = "https://image.tmdb.org/t/p/original/";
-
-const mapperToMovie = (movie: MovieResponse): Movie => {
+const mapperToMovie = (movie: MovieResponse): MovieItem => {
     return {
         id: movie.id,
-        adult: movie.adult,
         title: movie.title,
-        overview: movie.overview,
-        popularity: movie.popularity,
-        posterPath: `${IMAGEN_URL}${movie.poster_path}`,
+        posterPath: completeImagePath(movie.poster_path),
         releaseDate: formatDate(movie.release_date),
-        voteAverage: movie.vote_average,
-        languages: [],
-        genres: []
     }
 }
 
