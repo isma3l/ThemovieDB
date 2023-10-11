@@ -15,7 +15,7 @@ export const fetchAsyncPopularMovies = createAsyncThunk<MoviesData, void, { stat
 })
 
 export const fetchAsyncMoviesByName = createAsyncThunk<MoviesData, string, { state: { moviesReducer: MoviesState }}>
-    ('movies/fetchByName', async (query, { getState, rejectWithValue }) => {
+    ('movies/fetchByName', async (query: string, { getState, rejectWithValue }) => {
         const { moviesReducer: { searched: { page } }} = getState();
 
         try {

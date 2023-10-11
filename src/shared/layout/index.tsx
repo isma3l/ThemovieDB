@@ -8,7 +8,7 @@ export const MainLayout = () => {
     const handleSearchMovie = (movieName: string) => navigate(`/${SEARCH_URL}?query=${movieName}`);
 
     return (
-        <div className='bg-custom-color h-full'>
+        <div className='bg-custom-color h-full flex flex-col justify-center'>
             <Header handleSearch={handleSearchMovie}/>
             <Outlet />
         </div>

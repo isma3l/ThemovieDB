@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchMovieDetails } from "../services";
-import { MovieDetails } from '../domain/MovieDetails';
+import { Movie } from '@/shared';
 
-export const fetchAsyncMovieDetails = createAsyncThunk<MovieDetails, string>
+export const fetchAsyncMovieDetails = createAsyncThunk<Movie, string>
     ('movieDetails/fetch', async (movieId: string, { rejectWithValue }) => {
         try {
             return fetchMovieDetails(movieId);

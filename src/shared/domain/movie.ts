@@ -1,4 +1,4 @@
-export interface MovieDetails {
+export interface Movie {
     id: number;
     adult: boolean;
     title: string;
@@ -9,5 +9,4 @@ export interface MovieDetails {
     voteAverage: number;
     languages: string[];
     genres: string[];
-    homepage: string;
 }

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { MovieDetails } from "../domain/MovieDetails"
+import { Movie } from "@/shared"
 import { fetchAsyncMovieDetails } from "./moviesDetailsAction"
 
 export enum Status {
@@ -9,13 +9,13 @@ export enum Status {
     Error   = "ERROR"
 }
 
-export type MoviesState = {
-    movieDetails: MovieDetails | null,
+export type MovieDetailsState = {
+    movie: Movie | null,
     status: Status,
 }
 
-const initialState: MoviesState = {
-    movieDetails: null,
+const initialState: MovieDetailsState = {
+    movie: null,
     status: Status.Pending
 }
 
@@ -27,9 +27,9 @@ const movieDetailsSlice = createSlice({
         builder.addCase(fetchAsyncMovieDetails.pending, state => {
             state.status = Status.Loading;
         });
-        builder.addCase(fetchAsyncMovieDetails.fulfilled, (state, action: PayloadAction<MovieDetails>) => {
+        builder.addCase(fetchAsyncMovieDetails.fulfilled, (state, action: PayloadAction<Movie>) => {
             state.status = Status.Success;
-            state.movieDetails = action.payload;
+            state.movie = action.payload;
         });
         builder.addCase(fetchAsyncMovieDetails.rejected, state => {
             state.status = Status.Error;

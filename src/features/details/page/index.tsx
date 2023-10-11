@@ -1,7 +1,8 @@
+import { RateForm, DataSet, SimpleData } from "../components";
 import { useMovieDetails } from "./useMovieDetails";
 
 export function MovieDetailsPage() {
-    const { hasError, movieDetails, loading } = useMovieDetails();
+    const { hasError, movie, loading, handleRating } = useMovieDetails();
     
     if (hasError) return (<p className="flex justify-center text-red-600 text-3xl pt-12">
         Hubo un error inténtelo más tarde
@@ -10,44 +11,19 @@ export function MovieDetailsPage() {
     if (loading) return "Cargando";
 
     return (
-        <>
-            <div>
-                <span>titulo</span>
-                <span>{movieDetails?.title}</span>
+        <div className="flex w-4/5 self-center">
+            <img src={movie?.posterPath} className="md:w-80 lg:w-96 h-1/3" alt="movie poster"/>
+            <div className="flex flex-col ml-16 text-white">
+                <span className="text-4xl font-bold text-orange-900">{movie?.title}</span>
+                <span className="font-medium text-lg mt-8 mb-4 text-zinc-100">{movie?.overview}</span>
+                <DataSet title="Géneros" data={movie?.genres ?? []}/>
+                <SimpleData label="Popularidad" value={movie?.popularity.toString() ?? ""}/>
+                <SimpleData label="Votacion" value={movie?.voteAverage.toString() ?? ""}/>
+                <SimpleData label="Fecha de estreno" value={movie?.releaseDate ?? ""}/>
+                <DataSet title="Lenguajes" data={movie?.languages ?? []}/>
+                <RateForm handleRating={handleRating} />
             </div>
-            <div>
-                <span>Overview</span>
-                <span>{movieDetails?.overview}</span>
-            </div>
-            <div>
-                <span>popularidad</span>
-                <span>{movieDetails?.popularity}</span>
-            </div>
-            <div>
-                <span>votacion</span>
-                <span>{movieDetails?.voteAverage}</span>
-            </div>
-            <div>
-                <span>fecha de estreno</span>
-                <span>{movieDetails?.releaseDate}</span>
-            </div>
-            <div>
-                <span>homepage</span>
-                <span>{movieDetails?.homepage}</span>
-            </div>
-            <div>
-                <span>generos</span>
-                {movieDetails?.genres.map((genre: string) => (<span>{genre}</span>))}
-            </div>
-            <div>
-                <span>homepage</span>
-                <span>{movieDetails?.homepage}</span>
-            </div>
-            <div>
-                <span>lenguajes</span>
-                {movieDetails?.languages.map((language: string) => (<span>{language}</span>))}
-            </div>
-        </>
+        </div>
         
     );
 }

@@ -1,0 +1,1 @@
+export { rateMovieAsync, ratingReducer } from "./slices";

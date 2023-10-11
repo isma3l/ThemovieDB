@@ -1,10 +1,12 @@
 import { PreloadedState, configureStore, combineReducers } from '@reduxjs/toolkit';
 import { moviesReducer } from "@/features/movies";
 import { movieDetailsReducer } from "@/features/details";
+import { ratingReducer } from "@/features/ratings";
 
 const rootReducer = combineReducers({
     moviesReducer,
-    movieDetailsReducer
+    movieDetailsReducer,
+    ratingReducer
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
