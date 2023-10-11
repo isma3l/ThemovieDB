@@ -6,6 +6,8 @@ import type { PreloadedState } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import type { AppStore, RootState } from '@/store'
 import { moviesReducer } from "@/features/movies";
+import { movieDetailsReducer } from "@/features/details";
+import { ratingReducer } from "@/features/ratings";
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
@@ -19,7 +21,7 @@ export function renderWithProviders(
   {
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
-    store = configureStore({ reducer: { moviesReducer }, preloadedState }),
+    store = configureStore({ reducer: { moviesReducer, movieDetailsReducer, ratingReducer }, preloadedState }),
     ...renderOptions
   }: ExtendedRenderOptions = {}
 ) {

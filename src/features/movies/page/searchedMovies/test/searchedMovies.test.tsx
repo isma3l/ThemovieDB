@@ -12,7 +12,7 @@ describe('Search movies', () => {
   const sizePage = 20;
   const searchedMovie = "blue";
   
-  const renderCustom = () => {
+  const renderWithMemoryRouter = () => {
     return renderWithProviders(
       <MemoryRouter initialEntries={[`/search?query=${searchedMovie}`]}>
         <SearchedMoviesPage />
@@ -22,8 +22,8 @@ describe('Search movies', () => {
 
   it('given a search with the word "blue", it should render 20 movies whose names have the word "blue"', async () => {
     mockFetchMoviesByName.mockImplementation((page: number) => getMockMovies(page, sizePage, { title: searchedMovie}));
-
-    renderCustom();
+    renderWithMemoryRouter();
+    
     const items = await screen.findAllByRole("listitem");
     expect(items.length).toBe(sizePage);
     
@@ -33,7 +33,7 @@ describe('Search movies', () => {
   
   it('if service fails then should render a error message ', async () => {
     mockFetchMoviesByName.mockRejectedValue(new Error());
-    renderCustom();
+    renderWithMemoryRouter();
     
     expect(await screen.findByText("Hubo un error inténtelo más tarde")).toBeVisible();
   });

@@ -1,6 +1,6 @@
 import { Input, Button, Textarea } from "@material-tailwind/react";
 import { useMemo, useState } from "react";
-import { Rating } from "../../types/Rating";
+import { Rating } from "@/shared";
 
 const MIN_RATE = 0.5;
 const MAX_RATE = 10;
