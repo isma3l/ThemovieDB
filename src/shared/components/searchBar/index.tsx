@@ -13,9 +13,9 @@ export function SearchBar({ onSearch }: { onSearch: (text: string) => void }) {
     event.preventDefault();
     onSearch(movie);
   }
- 
+
   return (
-    <form onSubmit={handleSubmit} className="relative flex w-full max-w-[40rem] left-1/2 translate-x-[-50%]">
+    <form onSubmit={handleSubmit} className="relative flex w-full max-w-[40rem] mx-16">
       <Input
         type="text"
         value={movie}
