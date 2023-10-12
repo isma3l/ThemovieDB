@@ -1,4 +1,4 @@
-import { Input, Button, Textarea } from "@material-tailwind/react";
+import { Input, Textarea } from "@material-tailwind/react";
 import { useMemo, useState } from "react";
 import { Rating } from "@/shared";
 
@@ -21,6 +21,8 @@ export const RateForm = ({ handleRating, loading }: { loading: boolean, handleRa
         return value % MIN_RATE === 0 && value >= MIN_RATE && value <= MAX_RATE;
     }, [rate]);
 
+    const isDisabled = !isRateValid || loading;
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         handleRating({ value: Number(rate), comment});        
@@ -38,15 +40,13 @@ export const RateForm = ({ handleRating, loading }: { loading: boolean, handleRa
                     Ademas debe ser multiplo de 0.5</span>
             </div>
             <Textarea name="comment" label="Comentario" value={comment} onChange={handleChangeComment}/>
-            <Button
-                type="submit"
-                size="md"
-                color="blue"
-                className="rounded my-4"
-                disabled={!isRateValid || loading}
+            <button
+                type="submit"                
+                className={`rounded my-4 bg-buttom-color py-3 ${isDisabled && "bg-disabled-button"}`}
+                disabled={isDisabled}
             >
                 {loading ? "Enviando..." : "Enviar puntuación"}
-            </Button>
+            </button>
         </form>
     )
 };

@@ -9,11 +9,8 @@ describe("DataSet Component", () => {
 
         render(<DataSet label={label} data={data} />) 
 
-        const values = screen.getAllByLabelText(/value-/);
-        expect(values.length).toBe(data.length);
-        expect(screen.getByLabelText("value-drama")).toBeInTheDocument();
-        expect(screen.getByLabelText("value-accion")).toBeInTheDocument();
-        
-        expect(screen.getByLabelText("label-data")).toHaveTextContent(label);  
+        expect(screen.getByText(data[0])).toBeInTheDocument();
+        expect(screen.getByText(data[1])).toBeInTheDocument();        
+        expect(screen.getByText(label)).toBeInTheDocument();
     });
 });

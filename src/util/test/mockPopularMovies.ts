@@ -7,12 +7,12 @@ export const getMockMovie = (params?: Partial<Movie>): Movie => {
         adult: faker.datatype.boolean(),
         title: faker.string.sample(8),
         overview: faker.string.sample(20),
-        popularity: faker.number.int({ min: 1, max: 10}),
+        popularity: faker.number.int({ min: 11, max: 20}),
         posterPath: faker.image.url(),
         releaseDate: faker.date.anytime().toString(),
         voteAverage: faker.number.int({ min: 1, max: 10}),
-        languages: [],
-        genres: [],
+        languages: [faker.string.sample(4)],
+        genres: [faker.string.sample(4)],
         ...params
     }
 }

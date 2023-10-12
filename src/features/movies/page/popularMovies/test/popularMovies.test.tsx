@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 vi.mock("../../../services");
 const mockFetchPopularMovies = fetchPopularMovies as Mock;
 
-describe('Popular movies', () => {
+describe('Popular movies Page', () => {
   const sizePage = 20;
   
   const renderWithBrowserRouter = () => {
@@ -28,7 +28,7 @@ describe('Popular movies', () => {
   });
 
   it('if service fails then should render a error message ', async () => {
-    mockFetchPopularMovies.mockRejectedValue(new Error());
+    mockFetchPopularMovies.mockRejectedValue("Error getting the movies");
     renderWithBrowserRouter();
 
     expect(await screen.findByText("Hubo un error inténtelo más tarde")).toBeVisible();

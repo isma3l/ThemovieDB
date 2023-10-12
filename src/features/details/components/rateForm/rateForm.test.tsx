@@ -4,6 +4,8 @@ import userEvent from '@testing-library/user-event'
 import { RateForm } from "..";
 
 describe("RateForm Component", () => {
+    const user = userEvent.setup();
+
     it("should render a form", async () => {
         const handleSubmit = vi.fn();
 
@@ -25,7 +27,7 @@ describe("RateForm Component", () => {
         render(<RateForm handleRating={handleSubmit} loading={false} />);
 
         const input = screen.getByLabelText("rate-input");
-        await userEvent.type(input, value);
+        await user.type(input, value);
         
         expect(input).toHaveValue(Number(value));
         expect(screen.getByRole("button")).not.toBeDisabled();
@@ -38,7 +40,7 @@ describe("RateForm Component", () => {
         render(<RateForm handleRating={handleSubmit} loading={false} />);
 
         const input = screen.getByLabelText("rate-input");
-        await userEvent.type(input, value);
+        await user.type(input, value);
         
         expect(input).toHaveValue(Number(value));
         expect(screen.getByRole("button")).toBeDisabled();
@@ -51,12 +53,11 @@ describe("RateForm Component", () => {
         render(<RateForm handleRating={handleSubmit} loading={true} />);
 
         const input = screen.getByLabelText("rate-input");
-        await userEvent.type(input, value);
+        await user.type(input, value);
 
         const button = screen.getByRole("button");
         expect(button).toBeDisabled();
         expect(button).toHaveTextContent("Enviando...");
-
     })
 
 });

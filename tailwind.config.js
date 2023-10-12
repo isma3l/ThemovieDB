@@ -10,7 +10,8 @@ export default withMT({
       extend: {
         colors: {
           'custom-color': '#08152d',
-          //'custom-color': '#FFFFFF',
+          'buttom-color': '#0282cc',
+          'disabled-button': "#6dbae7"
         },
       },
     },

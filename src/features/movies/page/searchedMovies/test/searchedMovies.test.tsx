@@ -8,7 +8,7 @@ import { SearchedMoviesPage } from "..";
 vi.mock("../../../services");
 const mockFetchMoviesByName = fetchMoviesByName as Mock;
 
-describe('Search movies', () => {
+describe('Search movies Page', () => {
   const sizePage = 20;
   const searchedMovie = "blue";
   
@@ -32,7 +32,7 @@ describe('Search movies', () => {
   });
   
   it('if service fails then should render a error message ', async () => {
-    mockFetchMoviesByName.mockRejectedValue(new Error());
+    mockFetchMoviesByName.mockRejectedValue("Error getting the movies");
     renderWithMemoryRouter();
     
     expect(await screen.findByText("Hubo un error inténtelo más tarde")).toBeVisible();

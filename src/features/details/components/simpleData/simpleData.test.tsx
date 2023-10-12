@@ -9,7 +9,7 @@ describe("SimpleData Component", () => {
 
         render(<SimpleData label={label} value={value} />)
 
-        expect(screen.getByLabelText("label-simple")).toHaveTextContent(label);    
-        expect(screen.getByLabelText("value-simple")).toHaveTextContent(value);
+        expect(screen.getByText(label)).toBeInTheDocument();
+        expect(screen.getByText(value)).toBeInTheDocument();
     });
 });
