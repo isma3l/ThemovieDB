@@ -18,7 +18,6 @@ describe("Component MovieItem", () => {
     });
 
     it("When the user clicks on the component it should redirect to its detail page", async () => {
-        const user = userEvent.setup()
         const history = createMemoryHistory();
         history.push = vi.fn();
 
@@ -29,7 +28,7 @@ describe("Component MovieItem", () => {
         );
 
         const component = screen.getByRole("listitem");
-        await user.click(component);
+        await userEvent.click(component);
 
         expect(history.push).toHaveBeenCalledWith(
             {

@@ -19,11 +19,11 @@ export function MovieDetailsPage() {
                 <div className="flex flex-col ml-16 text-white">
                     <span className="text-4xl font-bold text-orange-900">{movie?.title}</span>
                     <span className="font-medium text-lg mt-8 mb-4 text-zinc-100">{movie?.overview}</span>
-                    <DataSet title="Géneros" data={movie?.genres ?? []}/>
+                    <DataSet label="Géneros" data={movie?.genres ?? []}/>
                     <SimpleData label="Popularidad" value={movie?.popularity.toString() ?? ""}/>
                     <SimpleData label="Votacion" value={movie?.voteAverage.toString() ?? ""}/>
                     <SimpleData label="Fecha de estreno" value={movie?.releaseDate ?? ""}/>
-                    <DataSet title="Lenguajes" data={movie?.languages ?? []}/>
+                    <DataSet label="Lenguajes" data={movie?.languages ?? []}/>
                     <RateForm loading={loadingRating} handleRating={handleRating} />
                 </div>
             </div>

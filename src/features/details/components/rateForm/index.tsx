@@ -31,10 +31,11 @@ export const RateForm = ({ handleRating, loading }: { loading: boolean, handleRa
             <div className="flex justify-between items-center my-4">
                 <div className="w-52">
                     <Input name="rating" label="Puntuación" min={MIN_RATE} max={MAX_RATE} step={MIN_RATE}
-                    value={rate} size="md" 
+                    value={rate} size="md" aria-label="rate-input" 
                     crossOrigin={undefined} onChange={handleChange} type="number"/>
                 </div>
-                <span className="text-xs w-full ml-12 text-teal-900">Puntuación válida entre 0.5 y 10</span>
+                <span className="text-xs ml-12 text-teal-900 w-60">La puntuación debe ser positiva y no superar 10. 
+                    Ademas debe ser multiplo de 0.5</span>
             </div>
             <Textarea name="comment" label="Comentario" value={comment} onChange={handleChangeComment}/>
             <Button
