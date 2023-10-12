@@ -1,9 +1,15 @@
-import {useState } from "react";
+import {useEffect, useState } from "react";
 import { Input, Button } from "@material-tailwind/react";
+import { useQueryParams } from "@/shared/hooks";
  
 export function SearchBar({ onSearch }: { onSearch: (text: string) => void }) {
+  const { query } = useQueryParams();
   const [movie, setMovie] = useState("");
   
+  useEffect(() => {
+    setMovie(query ?? "");
+  }, [query]);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { target } = event;
     setMovie(target.value);

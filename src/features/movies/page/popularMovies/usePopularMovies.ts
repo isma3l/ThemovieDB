@@ -11,8 +11,9 @@ export const usePopularMovies = () => {
     const dispatchFetch = useCallback(() => dispatch(fetchAsyncPopularMovies()), [dispatch]);
 
     useEffect(() => {
-        dispatchFetch();
-    }, [dispatchFetch]);
+        const hasMovies = movies.length > 0;
+        !hasMovies && dispatchFetch();
+    }, [dispatchFetch, movies]);
     
     return {
         movies,
