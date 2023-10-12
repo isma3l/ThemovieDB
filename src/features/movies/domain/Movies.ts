@@ -1,5 +1,5 @@
-import { MovieItem } from "@/shared";
+import { PartialMovie } from "@/shared";
 export interface MoviesData {
     page: number;
-    movies: MovieItem[];
+    movies: PartialMovie[];
 }

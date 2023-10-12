@@ -1,2 +1,2 @@
 export { renderWithProviders } from "./renderWithProvider";
-export { getMockMovies } from "./mockPopularMovies";
+export { getMockMovies, getMockMovie } from "./mockPopularMovies";

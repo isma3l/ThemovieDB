@@ -1,10 +1,10 @@
 import { get } from "@/lib/api";
 import { MoviesData } from "../domain/Movies";
-import { MovieItem } from "@/shared";
+import { PartialMovie } from "@/shared";
 import { MovieResponse, MoviesDataResponse } from "./moviesApiResponse";
 import { formatDate, completeImagePath } from "@/util";
 
-const mapperToMovie = (movie: MovieResponse): MovieItem => {
+const mapperToMovie = (movie: MovieResponse): PartialMovie => {
     return {
         id: movie.id,
         title: movie.title,

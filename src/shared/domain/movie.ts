@@ -11,4 +11,4 @@ export interface Movie {
     genres: string[];
 }
 
-export type MovieItem = Partial<Movie>;
+export type PartialMovie = Partial<Movie>;

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { MOVIE_DETAILS } from "@/constants";
-import { MovieItem as Movie } from "@/shared";
+import { PartialMovie } from "@/shared";
 
-export const MovieItem = ({movie: {id, title, releaseDate, posterPath}}: {movie: Movie}) => {
+export const MovieItem = ({ movie: {id, title, releaseDate, posterPath }}: {movie: PartialMovie}) => {
     return (
         <Link to={`${MOVIE_DETAILS}/${id}`} className="flex flex-col w-56 h-[25rem]" role="listitem">
             <img src={posterPath} className="h-80 rounded-2xl mb-3" alt="movie poster"/>
