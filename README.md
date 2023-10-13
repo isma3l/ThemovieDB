@@ -81,7 +81,7 @@ In the root of the project run:
 - **yarn test**
 ### Test webapp in development mode
 
-Although it is not recommended to save environment variables in the repository, since it is a proof of concept, the .env.development file that contains the URLs is left to test the application.
+Although it is not recommended to save environment variables in the repository, since it is a proof of concept, the **.env.development** file that contains the URLs is left to test the application.
 
 In the root of the project run:
 
@@ -91,4 +91,6 @@ After executing the command a local server will be executed at http://127.0.0.1:
 
 ### Test webapp in production mode
 
-The webapp is deployed in 
+The webapp is deployed in https://themovie-db.vercel.app/
+
+:D
