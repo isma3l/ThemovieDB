@@ -39,7 +39,7 @@ export const RateForm = ({ handleRating, loading }: { loading: boolean, handleRa
                 <span className="text-xs ml-12 text-teal-900 w-60">La puntuación debe ser positiva y no superar 10. 
                     Ademas debe ser multiplo de 0.5</span>
             </div>
-            <Textarea name="comment" label="Comentario" value={comment} onChange={handleChangeComment}/>
+            <Textarea name="comment" label="Comentario" value={comment} onChange={handleChangeComment} role="textbox" />
             <button
                 type="submit"                
                 className={`rounded my-4 bg-buttom-color py-3 ${isDisabled && "bg-disabled-button"}`}

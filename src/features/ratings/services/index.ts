@@ -1,1 +1,1 @@
-export { fetchNewSession, rateMovie } from "./sessionServices";
+export { fetchNewSession, rateMovie } from "./ratingServices";

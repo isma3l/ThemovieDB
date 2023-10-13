@@ -4,7 +4,7 @@ export const RatingItem = ({ratedMovie}: { ratedMovie: RatedMovie }) => {
     const { movie, rating } = ratedMovie;
     
     return (
-        <div key={movie.id} className="flex w-full justify-between border-b-2 mt-10">
+        <div key={movie.id} className="flex w-full justify-between border-b-2 mt-10" role="listitem">
             <div className="flex flex-col w-1/2">
                 <span className="text-white font-semibold">Pelicula: {movie.title}</span><span></span>
                 <span className="text-white font-semibold">Calificacion: {rating.value}</span>

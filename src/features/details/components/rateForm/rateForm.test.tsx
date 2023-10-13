@@ -26,6 +26,8 @@ describe("RateForm Component", () => {
 
         render(<RateForm handleRating={handleSubmit} loading={false} />);
 
+        expect(screen.getByRole("button")).toBeDisabled();
+
         const input = screen.getByLabelText("rate-input");
         await user.type(input, value);
         

@@ -15,7 +15,10 @@ export async function getWithOutParams<T>(url: string): Promise<T> {
 export const post = async <S, T>(url: string, body: S): Promise<T> => {
     const response = await fetch(`${CORS_URL}${BASE_URL}/${url}&api_key=${API_KEY}`, {
         method: 'POST',
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
+        headers: {
+            "Content-Type": "application/json",
+        }
     });
     return processResponse<T>(response);
 }
