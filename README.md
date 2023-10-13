@@ -60,9 +60,13 @@ The project is divided into two branches:
 - @faker-js/faker
 - vitest
 
+**Observations**
+
 The APIs used in development are located in the **.env.development file**
 
 In addition, a personal API https://github.com/isma3l/server-proxy was used to eliminate the problem with CORS presented by Themoviedb's API that rates movies.
+
+The **Router.tsx** file contains the routes of the webapp, the pages are loaded using lazy and suspense.
 
 ### Steps to test the application
 
