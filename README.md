@@ -1,27 +1,94 @@
-# React + TypeScript + Vite
+# Themoviedb
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Basic functionalities:
 
-Currently, two official plugins are available:
+The application is divided into two sections:
+- A header that contains a link to the main page, a movie search engine and a link that leads to the movies rated by the user.
+ 
+  This header is displayed on all screens.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- A section displayed below the header that contains the pages:
 
-## Expanding the ESLint configuration
+  The main screen loads in the **"/"** path and shows a list of the most popular movies.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  The movies that the user is looking for are loaded in a path similar to **"/search?query={movie}"**
 
-- Configure the top-level `parserOptions` property like this:
+  The details of a movie are shown in the path **"/movie/{idMovie}"**
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+  Movies rated by the user are displayed in the path **"/myList"**
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The design of the application is oriented by functionalities, that is, the application will be divided into modules or functionalities where each one will contain all the code necessary to implement a specific functionality within the application.
+
+Any code that is shared will be located in the folder shared.
+
+The 3 functionalities implemented are: 
+- movies
+- details
+- ratings.
+
+Within each module or functionality you will mainly find the folders:
+- components
+- page
+- services
+- slices: contains the slice and asynchronous actions handled by redux toolkit
+
+### Information technology
+
+The project is divided into two branches:
+
+- **main:** Contains the code developed for the webapp
+- **develop:** This branch was created from main after the development of the webapp was finished
+
+**Main technologies used:**
+
+- Vite
+- Typescript
+- React 18
+- Reduxjs/toolkit
+- Tailwind
+
+**Third party library:**
+
+- @material-tailwind/react
+- react-infinite-scroll-component
+- react-sticky-box
+- react-toastify
+
+**Test libraries:**
+
+- React Testing Library
+- @faker-js/faker
+- vitest
+
+The APIs used in development are located in the **.env.development file**
+
+In addition, a personal API https://github.com/isma3l/server-proxy was used to eliminate the problem with CORS presented by Themoviedb's API that rates movies.
+
+### Steps to test the application
+
+#### Initial steps
+Clone the repository
+- **git clone**
+
+
+Install the dependencies In the root of the cloned project run the following command:
+- **yarn install**
+
+### Run the tests
+
+In the root of the project run:
+
+- **yarn test**
+### Test webapp in development mode
+
+Although it is not recommended to save environment variables in the repository, since it is a proof of concept, the .env.development file that contains the URLs is left to test the application.
+
+In the root of the project run:
+
+- **yarn dev**
+
+After executing the command a local server will be executed at http://127.0.0.1:5173/ and the browser with the web application will be opened.
+
+### Test webapp in production mode
+
+The webapp is deployed in 
